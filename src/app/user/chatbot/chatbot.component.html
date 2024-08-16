@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+ 
+
+  <link rel="style"  href="catag.component.css">
+ <style>
+   body{
+    background-image: url("../assets/img/log1.jpg");
+	  width: 100%;
+     height: 151vh;
+     margin-top: auto;
+     margin-left: auto;
+	  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+   }
+   
+    #bot_image{
+    position: relative;
+    width: 90px;
+    height:70px;
+    border: none;
+    box-shadow: 0 0 0 0 rgba(52,216,249, 0.7);
+    border-radius: 100%;
+    background-image: url("../assets/img/icon.png");
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+}
+.botimg{
+    position: relative;
+    width:50px;
+    height:30px;
+    border: none;
+    box-shadow: 0 0 0 0 rgba(52,216,249, 0.7);
+    border-radius: 100%;
+    background-image: url("../assets/img/d.png");
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    float: left;
+}
+.Chat-icon {
+    position: relative;
+    width: 95px;
+    height: 95px;
+    border: none;
+    box-shadow: 0 0 0 0 rgba(52,216,249, 0.7);
+    border-radius: 50%;
+    background-color: #0D9EBB;
+    background-image: url("../assets/img/Chat.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+ </style>
+
+</head>
+
+
+  <body >
+
+
+    <header  id="header" class="fixed-top d-flex align-items-center header-transparent" >
+    
+      <div  class="container-fluid container-xl d-flex align-items-center justify-content-between">
+                <div class="logo me-auto" >
+                  <h1>EVENT.</h1>
+                </div>
+          
+                <nav id="navbar" class="navbar order-last order-lg-0">
+                  <ul>
+                    <li><a class="nav-link scrollto" (click)="gotohome()" >Home</a></li>
+                    <li><a class="nav-link scrollto" href="search">Search</a></li>
+          
+                    <li><a class="nav-link scrollto "  href="catag">Event List</a></li>
+                    <li><a class="nav-link scrollto" href="profil">Profile</a></li>
+                    <li><a class="nav-link scrollto active"  href="chatbot">Contact</a></li>
+                    <button   class="btn" style="color:aliceblue;"  (click)="cart()"  ><i class="fas fa-shopping-cart"></i>Cart</button>
+                   
+                  </ul>
+                  <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+          
+                
+          
+              </div>
+            </header><!-- End Header -->
+
+
+
+<!--<div class="container">
+    <button class="Chat-icon" id="chatbot" data-toggle="modal" 
+    data-target="#ChatBot" data-backdrop="static" data-keyboard="false">
+    </button>
+  </div>-->
+  
+  <!-- Modal -->
+  <div class="modal-fade" id="ChatBot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+    <!--  <div class="modal-content closeModel" id="closeModel">
+        <h6>
+          <i id="chatdone">Chat Done &#9829;</i>
+          <i class="close" data-dismiss="modal" id="close" class="fa fa-times"></i>
+          
+        </h6>
+      </div>  -->
+      <section class="modal-content">
+        <div class="card">
+          <div id="chat_header" class="card-title">
+            <div class="d-flex flex-row">
+              <div class="p-2 pull-left rounded-circle" id="bot_image"></div>
+              <span class="p-2 h2" id="botname">Event ChatBot.</span>
+              <span>
+                <button type="button" class="btn " (click)="chatlogs.innerHTML = ''">Delete Chat</button>
+              </span>
+            </div>
+          </div>
+          <br />
+          <div class="card-body" id="chatlogs" #chatlogs  style="margin-top: 3px;"></div>
+          <hr />
+          <div id="chat_footer">
+            <div class="input-bar">
+              <div class="input-bar-item width100">
+                <form #inputMsg="ngForm" (ngSubmit)="onSubmit()">
+                  <div class="input-group">
+                    <input
+                      required
+                      placeholder="Enter Message here"
+                      (ngModelChange)="Empty()"
+                      type="text"
+                      class="form-control width100 rounded"
+                      name="chatModal.inputQuery"
+                      [(ngModel)]="chatModal.inputQuery"
+                    />
+                    <span *ngIf="sendButton==true" class="input-group-btn">
+                      <button type="submit" class="btn  btn-block rounded">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                      </button>
+                    </span>
+                    <span *ngIf="sendButton==false" class="input-group-btn">
+                      <button type="submit" class="btn  btn-block rounded" disabled>
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                      </button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        </div>
+      </section>
+    </div>
+  </div>
+  
+            
+              
+
+         
+
+  </body>
+</html>            

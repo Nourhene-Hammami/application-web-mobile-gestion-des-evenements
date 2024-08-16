@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+    <link rel="style"  href="payement.component.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+	<title>Formulaire de commande</title>
+	<style>
+         body{
+     background-image: url("../assets/img/log1.jpg");
+      width: 100%;
+      height: 100vh;
+      margin-top: auto;
+      margin-left: 	auto;
+       background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     position: relative;
+
+    }  
+		
+	
+	</style>
+</head>
+<body>
+    <header  id="header" class="fixed-top d-flex align-items-center header-transparent" >
+    
+        <div  class="container-fluid container-xl d-flex align-items-center justify-content-between">
+                  <div class="logo me-auto" >
+                    <h1>EVENT.</h1>
+                  </div>
+            
+                  <nav id="navbar" class="navbar order-last order-lg-0">
+                    <ul>
+                      <li><a class="nav-link scrollto" (click)="gotohome()">Home</a></li>
+                      <li><a class="nav-link scrollto" href="search">Search</a></li>
+                      <li><a class="nav-link scrollto "  href="catag">Event List</a></li>
+                      <li><a class="nav-link scrollto" href="profil">Profile</a></li>
+                      <li><a class="nav-link scrollto" href="chatbot">Contact</a></li>  
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                  </nav><!-- .navbar -->
+        
+                </div>
+              </header><!-- End Header -->
+<section class= "checkout-section spad" style="margin-top:2% ;" >
+	<div style="overflow-y: scroll;height: 500px;" class="row justify-content-center">
+	<div class="container"	>
+		<div class="row">
+			<div class="col-md-6">
+				
+			<form class="checkout-form" [formGroup]="registerForm" >
+				<div class="row address-inputs">
+					<div class="col-md-12">
+						<label for="prenom"> FullName :</label>
+						<input type="text" class="form-control"  placeholder="FullName" formControlName="nom" 
+
+
+
+
+
+				
+
+						
+						 [(ngModel)]="panier.nom">
+						<div class="from-text text-danger" *ngIf="Nom.errors?.['required'] && (Nom.touched || Nom.dirty)">
+							FullName  is required.</div>
+							<div class="from-text text-danger" *ngIf="Nom.errors?.['minlength'] && (Nom.touched || Nom.dirty)">
+								FullName  is too short. </div>
+			  
+								<div class="from-text text-danger" *ngIf="Nom.errors?.['pattern'] && (Nom.touched || Nom.dirty)" >
+									FullName  should start with Alphabet. </div>
+
+
+
+									<label for="adresse"> Adress:</label>
+						<input type="text" class="form-control"  placeholder="adress" formControlName="adresse" [(ngModel)]="panier.adresse"
+					 >
+						<div class="from-text text-danger" *ngIf="Adresse.errors?.['required'] && (Adresse.touched || Adresse.dirty)">
+							Adress  is required.</div>
+							<div class="from-text text-danger" *ngIf="Adresse.errors?.['minlength'] && (Adresse.touched || Adresse.dirty)">
+								Adress  is too short. </div>
+					</div>
+					<div class="col-md-6">
+						<label for="ville"> City:</label>
+					<input type="text" class="form-control"  placeholder="city" formControlName="ville" [(ngModel)]="panier.ville">
+					<div class="from-text text-danger" *ngIf="Ville.errors?.['required'] && (Ville.touched || Ville.dirty)">
+						City  is required.</div>
+						<div class="from-text text-danger" *ngIf="Ville.errors?.['minlength'] && (Ville.touched || Ville.dirty)">
+							City  is too short. </div>
+							<div class="from-text text-danger" *ngIf="Ville.errors?.['pattern'] && (Ville.touched || Ville.dirty)" >
+								City  should start with Alphabet. </div>
+				     </div>
+
+					 <div class="col-md-6">
+						<label for="Téléphone1"> Phone  :</label>
+						<input type="text" class="form-control"  placeholder="Phone" formControlName="tel" [(ngModel)]="panier.tel">
+						<div class="from-text text-danger" *ngIf="Tel.errors?.['required'] && (Tel.touched || Tel.dirty)">
+							Tel  is required.</div>
+							<div class="from-text text-danger" *ngIf="Tel.errors?.['minlength'] && (Tel.touched || Tel.dirty)">
+								Tel is too short. </div>
+								<div class="from-text text-danger" *ngIf="Tel.errors?.['pattern'] && (Tel.touched || Tel.dirty)" >
+									Tel  should be with Number. </div>
+						 </div>
+						 <div class="col-md-6">
+							<label for="Postal Code"> Postal Code:</label>
+							<input type="text" class="form-control"  placeholder="Postal Code" formControlName="codep" [(ngModel)]="panier.codep" required>
+							<div class="from-text text-danger" *ngIf="Codep.errors?.['required'] && (Codep.touched || Codep.dirty)">
+								Postal Code is required.</div>
+								<div class="from-text text-danger" *ngIf="Codep.errors?.['minlength'] && (Tel.touched || Codep.dirty)">
+									Postal Code is too short. </div>
+									<div class="from-text text-danger" *ngIf="Codep.errors?.['pattern'] && (Codep.touched || Codep.dirty)" >
+										Postal Code  should be with Number. </div>
+
+
+
+							 </div>
+							</div>
+							<div class="col-md-6">
+								<label for="paiement">Payment method :</label>
+							<select id="paiement" name="paiement">
+								
+								<option value="ligne">Bank Card</option>
+								<option value="surplace">checks</option>
+								<option value="surplace">Credit Card</option>
+								<option value="surplace">Debit Card</option>
+							</select></div>
+							<br>
+<div class="form-group row" >
+	<div class="col-md-6">
+		<button type="button" class="btn btn-primary "  (click)="valider()">
+			<i class="fas fa-check"></i> Validation</button>
+	 </div>
+
+	<div class="col-md-6">
+			<button type="button" class="btn" style="color:rgb(16, 17, 17);" routerLink="/cart">
+				<i class="fas fa-times"></i> Back</button>
+    </div>
+	
+</div>
+<div class="form-group row" style="margin-top: 100px;">
+	<div class="col-md-6">
+		<button type="button" class="btn1  "  style="color:rgb(211, 18, 163);" routerLink="/attestation" [disabled]="!formIsValid">
+			<i class="fas fa-certificate"></i> Certificate </button>
+	 </div>
+
+<!--	<div class="col-md-6" >
+			<button type="button" class="btn1" style="color:rgb(211, 18, 163);"[disabled]="!formIsValid">
+		<i class="fas fa-trophy"></i> Badge</button>
+    </div> -->
+	
+</div>
+<br>
+</form>
+</div>
+
+<div class="col-md-6" style="margin-top:3% ;">
+<div class="checkout-cart">
+	<h3>Your cart</h3>
+	<div class="cart-table-warp row">
+		<table class="card-table">
+			<thead>
+				<tr>
+					<th class="col-lg-6" >    Event</th>
+					<th class="col-lg-6" > Ticket Type</th>
+					<th class="col-lg-3" > Price</th>
+					<th class="col-lg-3" > Quantity</th>
+					<th class="total-th" > Total</th>
+				</tr>
+			</thead>
+			<tbody>
+<tr *ngFor="let event of _eventlist;">
+	<td  class="product-col"><p>{{event.name}}</p>
+	<img src="{{this.service.host+'/imageevents/'+event.id}}"  heigth= "500px" width ="120px"alt=""></td>
+	<td  >
+		{{ event.ticketType}}></td>
+	<td class="quy-col" >
+		{{ event.ticketType === 'student' ? event.priceForStudent : event.priceForNoStudent }} TND
+	  </td>
+	  
+	<td class="total-col" >	{{event.qte}}</td>
+    <td class="total-col" >{{event.total}}</td>
+	
+</tr>
+
+			</tbody>
+		</table>
+		<td > <strong> total to pay: {{grandTotal}} TND</strong></td>
+	</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>
+

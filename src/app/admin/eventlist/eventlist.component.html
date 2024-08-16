@@ -1,0 +1,77 @@
+
+<div class="container"  style="margin-top:65px">
+ 
+<div><p> List of Event: Use action to crud operations  :</p></div>
+
+<table class="table table-striped" >
+    <thead  >
+      <tr >
+        <th scope="col"   > Event Id</th>
+        <th scope="col">Event Name </th>
+        <th scope="col">Event Place</th>
+        <th scope="col">Event Date</th>
+        <th scope="col">Event Stock</th>
+        <th scope="col"style="padding-right:265px">Event Description</th>
+        <th scope="col">Event Organizer</th>
+        <th scope="col">Event Price For Student</th>
+        <th scope="col">Event Price For No Student</th>
+        <th scope="col">Event City</th>
+        <th scope="col">Event Picture</th>
+        
+        <th scope="col" style="padding-right:265px ">Action</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+     <!-- <tr *ngIf="_eventlist.length==0">
+        <td colspan="5"style="text-align:center"><h2>There are no events yet</h2></td></tr> -->
+      <tr *ngFor="let event of _eventlist">
+        
+        <td>{{event.id}}</td>
+        <td>{{event.name}}</td>
+        <td>{{event.lieu}}</td>
+        <td>{{event.date}}</td>
+        <td>{{event.stoke}}</td>
+        <td>{{event.desp}}</td>
+        <td>{{event.organizateur}}</td>
+        <td>{{event.priceForStudent}} TND</td>
+        <td>{{event.priceForNoStudent}} TND</td>
+        <td>{{event.city}}</td>
+ <td> 
+ 
+ 
+   
+<!--<div *ngFor="let file of event.image;">
+    <td><img [src]="file.url"></td>
+  </div>-->
+  <img src="{{this.service.host+'/imageevents/'+event.id}}"  heigth= "1550px" width ="120px"alt="">
+
+  
+        
+       <!--   <img src="{{event.image}}" class="card-img-top" alt="">   --> 
+         
+      
+
+  </td>
+   
+        <td> 
+ 
+             <button type="button" class="btn btn-secondary" (click)="gotoeditevent(event.id)" ><i class="fas fa-edit"></i>
+             </button>&nbsp;&nbsp;
+             <button type="button" class="btn btn-info"    (click)="gotoviewevent(event.id)"><i class="fas fa-eye"></i></button>&nbsp;&nbsp;
+             <button type="button" class="btn btn-danger" (click)="deleteevent(event.id)">
+               <i class="fas fa-trash" aria-hidden="true"></i></button>&nbsp;&nbsp;
+        </td>
+    
+       
+      </tr>
+    </tbody>
+  </table>
+  <div>
+  <button type="button" class="btn btn-success"       (click)="gotoaddevent()">  
+    <i class="fas fa-plus"></i>Add event</button>&nbsp;&nbsp;
+</div>
+
+
+
+</div>

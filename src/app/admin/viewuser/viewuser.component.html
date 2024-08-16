@@ -1,0 +1,33 @@
+<div class="container" style="margin-top:65px">
+    <div><h2>   </h2></div>
+   <div><p> </p></div>
+   
+   <table class="table table-striped">
+       <thead>
+         <tr>
+          <th scope="col">User Id </th>
+            <th scope="col">User Name </th>
+            <th scope="col">User Email</th>
+            <th scope="col">User Password </th>
+            <th scope="col">User Role</th>
+          
+         </tr>
+       </thead>
+       <tbody>
+     
+         <tr >
+          <td>{{user.id}}</td>
+          
+            <td>{{user.name}}</td>
+            <td>{{user.mail}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.role}}</td>
+           
+           
+         </tr>
+       </tbody>
+     </table>
+     <div>
+       <button type="button" class="btn btn-secondary"(click)="gotolist()">back</button>
+   </div></div>
+   

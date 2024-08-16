@@ -1,0 +1,85 @@
+
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+
+
+
+ /*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+  #header {
+    top: 50px;
+    height: 70px;
+    z-index: 997;
+    transition: all 0.5s;
+    padding: 10px 0;
+    margin-top:-4%;
+    margin-bottom: 150px;
+    margin-left: 3px;
+    background: rgba(17, 9, 1, 0.85);
+  }
+  #header.header-transparent {
+    background:rgba(252, 250, 249, 0.85) ;
+
+  }
+  #header.header-scrolled {
+    top: 0;
+    background: rgba(26, 24, 22, 0.85);
+  }
+  #header .logo h1 {
+    font-size: 28px;
+    margin: 0;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 3px;
+  
+  }
+  #header .logo h1 a, #header .logo h1 a:hover {
+    color: #7c2bff;
+    text-decoration: none;
+    margin-left: 150px;
+    margin-right: 50px;
+  }
+  #header .logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 40px;
+  }
+  /*--------------------------------------------------------------
+  # Navigation Menu
+  --------------------------------------------------------------*/
+  /**
+  * Desktop Navigation 
+  */
+  .navbar {
+    padding: 0;
+  
+  }
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    
+  }
+  .navbar li {
+    position: relative;
+  }
+  .navbar a, .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #7c2bff;
+    white-space: nowrap;
+    transition: 0.3s;
+   
+ 
+  }

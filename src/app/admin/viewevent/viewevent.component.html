@@ -1,0 +1,45 @@
+
+<div class="container" style="margin-top:65px">
+ <div><h2>   </h2></div>
+<div><p> </p></div>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        
+        <th scope="col">Event Name </th>
+        <th scope="col">Event lieu</th>
+        <th scope="col">Event Date</th>
+        <th scope="col">Event Stock</th>
+        <th scope="col">Event Description</th>
+        <th scope="col">Event Price For Student</th>
+        <th scope="col">Event City</th>
+        <th scope="col">Event Picture</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+  
+      <tr >
+        
+       
+        <td>{{event.name}}</td>
+        <td>{{event.lieu}}</td>
+        <td>{{event.date}}</td>
+        <td>{{event.stoke}}</td>
+        <td>{{event.desp}}</td>
+        <td>{{event.priceForStudent}}</td>
+        <td>{{event.city}}</td>
+        
+        <td>      
+ 
+ 
+          <div>
+            <img src="{{this.service.host+'/imageevents/'+event.id}}" alt="" height="60px" width="60px">
+          </div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button type="button" class="btn btn-secondary"(click)="gotolist()">back</button>
+</div></div>

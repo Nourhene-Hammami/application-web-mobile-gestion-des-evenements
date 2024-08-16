@@ -1,0 +1,33 @@
+<div style="margin-top: 5.5%;">
+    <h1>  <input type="text" id="myInput" (keyup)="myFunction()" class= "searchTerm"
+         placeholder="Search for Users names.."> </h1>
+     
+      <table id="myTable">
+        <thead>
+        <tr class="header">
+          <th style="width:50%;">Name</th>
+          <th style="width:50%;">Email</th>
+          <th style="width:50%;">Password</th>
+          <th style="width:50%;">Role</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+  
+  
+        <tr *ngFor="let event of _userlist">
+         
+          <td >{{event.name}}</td>
+          <td>{{event.mail}}</td>
+          <td>{{event.password}}</td>
+          <td>{{event.role}}</td>
+        </tr>
+        
+        </tbody>
+      </table> 
+    </div>
+    <div>
+     
+    
+  

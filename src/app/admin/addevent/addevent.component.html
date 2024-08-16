@@ -1,0 +1,121 @@
+
+<div class="container" style="margin-top:65px">
+ <div><h5>Add new event:</h5></div>
+
+   <form  [formGroup]="registerForm"  >
+ 
+   {{event| json}}
+      
+
+        <div >
+          <label for="name">name:</label>
+             <input  type="text" formControlName="name" class="form-control" name="name" id="name" [(ngModel)]="event.name">
+             <!--<div class="from-text text-danger" *ngIf="addeventform.controls['name'].errors?.['minlength'] && (addeventform.controls['name'].touched || addeventform.controls['name'].dirty)">
+               name is too short. </div>-->
+               <div class="from-text text-danger" *ngIf="Name.errors?.['required'] && (Name.touched || Name.dirty)">
+                  name is required.</div>
+                  <div class="from-text text-danger" *ngIf="Name.errors?.['minlength'] && (Name.touched || Name.dirty)">
+                     name is too short. </div>
+             
+                   
+        </div>
+        
+
+        <div >
+          <label for="lieu">Place:</label>
+             <input  type="text" formControlName="lieu" class="form-control" name="lieu" [(ngModel)]="event.lieu">
+             <div class="from-text text-danger" *ngIf="Place.errors?.['required'] && (Place.touched || Place.dirty)">
+               place is required.</div>
+               <div class="from-text text-danger" *ngIf="Place.errors?.['minlength'] && (Place.touched || Place.dirty)">
+                  place is too short. </div>
+          
+                      <div class="from-text text-danger" *ngIf="Place.errors?.['pattern'] && (Place.touched || Place.dirty)" >
+               place should start with Alphabet. </div>
+        </div>
+        
+        <div >
+         <label for="city">city:</label>
+            <input  type="text" formControlName="city"  class="form-control" name="city" [(ngModel)]="event.city">
+            <div class="from-text text-danger" *ngIf="City.errors?.['required'] && (City.touched || City.dirty)">
+               City is required.</div>
+               <div class="from-text text-danger" *ngIf="City.errors?.['minlength'] && (City.touched || City.dirty)">
+                  City is too short. </div>
+          
+                      <div class="from-text text-danger" *ngIf="City.errors?.['pattern'] && (City.touched || City.dirty)" >
+                        City should be with Alphabet. </div>
+       </div>
+
+
+        <div >
+          <label for="date">date:</label>
+             <input  type="date"  formControlName="date"  class="form-control" required name="date"  [(ngModel)]="event.date">
+        </div>
+
+        <div >
+         <label for="stoke">stock:</label>
+            <input  type="text" formControlName="stoke"  class="form-control"  name="stoke" [(ngModel)]="event.stoke">
+            <div class="from-text text-danger" *ngIf="Stoke.errors?.['required'] && (Stoke.touched || Stoke.dirty)">
+               Stock  is required.</div>
+
+                  <div class="from-text text-danger" *ngIf="Stoke.errors?.['pattern'] && (Stoke.touched || Stoke.dirty)" >
+                    Stock should be with Number. </div> 
+       </div>
+
+<div >
+          <label for="description">description:</label>
+             <input  type="text" formControlName="desp" class="form-control"  name="desp" [(ngModel)]="event.desp">
+             <div class="from-text text-danger" *ngIf="Description.errors?.['required'] && (Description.touched || Description.dirty)">
+               Description is required.</div>
+               <div class="from-text text-danger" *ngIf="Description.errors?.['minlength'] && (Description.touched || Description.dirty)">
+                  Description is too short. </div>
+          
+                      <div class="from-text text-danger" *ngIf="Description.errors?.['pattern'] && (Description.touched || Description.dirty)" >
+                        Description should start with Alphabet. </div>
+        </div>
+        <div >
+         <label for="organizateur">Organizer:</label>
+            <input  type="text" formControlName="organizateur"  class="form-control"  name="organizateur" id="organizateur" [(ngModel)]="event.organizateur">
+            <div class="from-text text-danger" *ngIf="Organizer.errors?.['required'] && (Organizer.touched || Organizer.dirty)">
+               Organizer is required.</div>
+               <div class="from-text text-danger" *ngIf="Organizer.errors?.['minlength'] && (Organizer.touched || Organizer.dirty)">
+                  Organizer is too short. </div>
+          
+                      <div class="from-text text-danger" *ngIf="Organizer.errors?.['pattern'] && (Organizer.touched || Organizer.dirty)" >
+                        Organizer should be with Alphabet. </div>
+         </div>
+       
+         
+        <div >
+          <label for="priceForStudent">price For Student:</label>
+             <input  type="text" formControlName="priceForStudent"  class="form-control" required minlength="1"  name="priceForStudent" [(ngModel)]="event.priceForStudent">
+             <div class="from-text text-danger" *ngIf="Prixforstudent.errors?.['required'] && (Prixforstudent.touched || Prixforstudent.dirty)">
+              Prix For Student  is required.</div>
+
+               
+        </div>
+        <div >
+         <label for="priceForNoStudent">price For  No Student:</label>
+            <input  type="text" formControlName="priceForNoStudent"class="form-control" required minlength="1"  name="priceForNoStudent" [(ngModel)]="event.priceForNoStudent">
+            <div class="from-text text-danger" *ngIf="Prixfornostudent.errors?.['required'] && (Prixfornostudent.touched || Prixfornostudent.dirty)">
+               Prix For  No Student  is required.</div>
+
+              
+         </div>
+        
+        <div >
+         <label for="image">Picture:</label>
+        
+         <input  type="file" name="file"  accept="image/*"  multiplevalue="select" #selectFile  (change)="onFileSelected($event)" >
+         <img [src]="imgURL" height="100px" width="100px"  *ngIf="imgURL">
+       </div>
+       &nbsp;&nbsp;
+       
+          <!--<div *ngFor="let file of event.image;">
+        <img [src]="file.url" height="100px" width="100px">
+      </div>-->
+
+<button type="submit" class="btn btn-success"(click)="addeventfromsubmit()">Submit</button>&nbsp;
+
+<button type="button" class="btn btn-secondary"(click)="gotolist()">back</button>
+</form>
+</div>

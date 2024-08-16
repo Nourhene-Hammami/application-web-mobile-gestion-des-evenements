@@ -1,0 +1,46 @@
+
+
+  <div style="margin-top: 5.5%;">
+  <h1>  <input type="text" id="myInput" (keyup)="myFunction()" class= "searchTerm" placeholder="Search for events names.."> </h1>
+   
+    <table id="myTable">
+      <thead>
+      <tr class="header">
+   
+        <th scope="col"> Event Name</th>
+        <th scope="col"> Event Place</th>
+        <th scope="col">Event Date</th>
+        <th scope="col">Event Description</th>
+        <th scope="col">Event Price For Student</th>
+        <th scope="col">Event Price For  No Student</th>
+        <th scope="col">Event City</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <tr *ngFor="let event of _eventlist">
+       
+        <td >{{event.name}}</td>
+        <td>{{event.lieu}}</td>
+        
+        <td>{{event.date}}</td>
+        <td>{{event.desp}}</td>
+        <td>{{event.priceForStudent}}TND</td>
+        <td>{{event.priceForNoStudent}}TND</td>
+        <td>{{event.city}}</td>
+      
+      </tr>
+      
+      </tbody>
+    </table> 
+  </div>
+  <div>
+   
+  
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+      <i class="bi bi-arrow-up-short"></i></a>
+</div>
+
+

@@ -1,0 +1,87 @@
+<div class="container" style="margin-top:85px">
+    <div><h5>Update User:</h5></div>
+   <form  [formGroup]="registerForm"  >
+    
+         
+   
+           <div >
+             <label for="email">Email:</label>
+                <input  type="email"  formControlName="mail"  class="form-control"  [(ngModel)]="userToUpdate.mail" name="mail" id="mail">
+                <div class="from-text text-danger" *ngIf="Mail.errors?.['required'] && (Mail.touched || Mail.dirty)">
+                  Email is required.</div>
+              <div class="from-text text-danger" *ngIf="Mail.errors?.['email'] && (Mail.touched || Mail.dirty)">
+                    Email is Invalid.</div>
+           </div>
+   
+   
+           <div >
+             <label for="name">Name</label>
+                <input  type="text"  formControlName="name" class="form-control"   [(ngModel)]="userToUpdate.name" 
+                name="name" id="name">
+                <div class="from-text text-danger" *ngIf="UserName.errors?.['required'] && (UserName.touched || UserName.dirty)">
+                  username is required.</div>
+ 
+             <div class="from-text text-danger" *ngIf="UserName.errors?.['minlength'] && (UserName.touched || UserName.dirty)">
+           username is too short. </div>
+
+               <div class="from-text text-danger" *ngIf="UserName.errors?.['pattern'] && (UserName.touched || UserName.dirty)" >
+         username should start with Alphabet. </div>
+             
+               
+
+           </div>
+
+
+
+           
+        <div>
+            
+          <label for="password">Password</label>
+        	<input type="password"  class="form-control" name="password"  id="password"formControlName="password" [(ngModel)]="userToUpdate.password" >
+			<div class="from-text text-danger" *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">
+				Password is required.</div>
+			<div class="from-text text-danger" *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && (Password.touched || Password.dirty)">
+					Password should be at least 4 and at max 10 characters long.</div>	
+		    </div>
+   
+           <div style="margin: 25px;">
+            <label for="role">Role:</label>
+            <select id="role" name="role"  formControlName="role"  [(ngModel)]="userToUpdate.role">
+              <option value="null" disabled selected>Select role</option>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+            <div class="form-text text-danger" *ngIf="Role.invalid && (Role.touched || Role.dirty)">
+              Please select a role.
+            </div>
+          </div>
+          
+   
+    
+           
+           
+          
+   <button type="submit" class="btn btn-success" (click)="updateuserfromsubmit()">Update</button>&nbsp;&nbsp;
+   <button type="button" class="btn btn-secondary"(click)="gotolist()">back</button>
+     
+   </form>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+       
+   </div>

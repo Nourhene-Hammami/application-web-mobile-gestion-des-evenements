@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <style>
+    @media print {
+  body * {
+    visibility: hidden;
+  }
+  #container, #container * {
+    visibility: visible;
+  }
+  #container {
+    position: absolute;
+    left: 2;
+    top: 2;
+  }
+}
+
+    .attestation-container {
+ 
+  border: 2px solid black;
+  border-width: 1px; /* valeur inférieure à 2px */
+  padding: 20px;
+  margin-bottom: 5px;
+}
+
+	 
+	  body {
+	background-image: url("../assets/img/log1.jpg");
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	margin: -20px 0 50px;
+	 width: 100%;
+     height: 100vh;
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+	}
+
+	.container{
+		justify-content: center;
+		padding: 60px,35px,35px,35px;
+		border-radius: 20px;
+		margin-top:10px;
+		margin-bottom: 50px;
+		margin-left: 100px;
+		margin-right: 100px;
+
+	}
+  </style>
+</head>
+
+<body >
+
+	
+
+
+    <div class="container attestation-container" id="container" >
+
+        <h2 style="text-align: center;">Your Certificate:</h2>
+        <h5 >Dear Customer,</h5>
+        
+        <p>We are the team of EVENT. We congratulate our loyal customer. </p>
+            Name:<h4>{{NomClt}}</h4>
+            Address:<h4>{{Adress}} </h4>
+            City:<h4>{{Ville}}</h4>
+            Phone :<h4>{{tel}}</h4>
+            Postal Code: <h4>{{Codep}} </h4>
+            <p>who has successfully completed the payment. They can now attend the following events:</p>
+            <ul>
+                <li *ngFor="let item of _eventlist">{{ item.name }} for {{ item.qte }} person(s).</li>
+              </ul>
+              
+         
+         <p>WELCOME!</p>
+         
+
+
+
+           
+            
+    
+   
+
+
+
+
+</div>
+<div class="form-group row" >
+	<div class="col-md-6">
+		<button type="button" class="btn  "  (click)="printthispage()">
+			<i class="fas fa-check"></i> print pdf</button>
+	 </div>
+<div class="col-md-6" >
+    <button type="button" class="btn" style="color:rgb(16, 17, 17);" routerLink="/payer">
+        <i class="fas fa-times"></i> Back</button>
+</div>
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,58 @@
+
+<div class="container"  style="margin-top:65px">
+ 
+  <div><p> List of Users : Use action to crud operations  :</p></div>
+  
+  <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th scope="col">User Id </th>
+          <th scope="col">User Name </th>
+          <th scope="col">User Email</th>
+          <th scope="col">User Role</th>
+       
+          
+          <th scope="col" style="padding-right:165px">Action</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+       <!-- <tr *ngIf="_eventlist.length==0">
+          <td colspan="5"style="text-align:center"><h2>There are no events yet</h2></td></tr> -->
+        <tr *ngFor="let user of _userlist">
+          
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.mail}}</td>
+          <td>{{user.role}}</td>
+          
+  
+   
+   
+    
+           
+        
+  
+  
+     
+          <td> 
+   
+               <button type="button" class="btn btn-secondary"  (click)="gotoedituser(user.id)"><i class="fas fa-edit"></i>
+               </button>&nbsp;&nbsp;
+               <button type="button" class="btn btn-info"  (click)="gotoviewuser(user.id)"><i class="fas fa-eye"></i></button>&nbsp;&nbsp;
+               <button type="button" class="btn btn-danger" (click)="deleteuser(user.id)">
+                 <i class="fas fa-trash" aria-hidden="true"></i></button>&nbsp;&nbsp;
+          </td>
+      
+         
+        </tr>
+      </tbody>
+    </table>
+    <div>
+    <button type="button" class="btn btn-success" (click)="gotoadduser()"><i class="fas fa-plus"  ></i>Add user</button>&nbsp;&nbsp;
+  </div>
+  
+  
+  
+  </div>
+  

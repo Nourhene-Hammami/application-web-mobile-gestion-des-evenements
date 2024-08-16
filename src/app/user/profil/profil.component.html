@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+    <link rel="style"  href="payement.component.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+	<title>Formulaire de commande</title>
+	<style>
+         body{
+     background-image: url("../assets/img/log1.jpg");
+      width: 100%;
+      height: 100vh;
+      margin-top: auto;
+      margin-left: 	auto;
+       background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     position: relative;
+
+    }  
+		
+	
+	</style>
+</head>
+<body>
+    <header  id="header" class="fixed-top d-flex align-items-center header-transparent" >
+    
+        <div  class="container-fluid container-xl d-flex align-items-center justify-content-between">
+                  <div class="logo me-auto" >
+                    <h1>EVENT.</h1>
+                  </div>
+                  <nav id="navbar" class="navbar order-last order-lg-0">
+                    <ul>
+                      <li><a class="nav-link scrollto" (click)="gotohome()">Home</a></li>
+                      <li><a class="nav-link scrollto" href="search">Search</a></li>
+            
+                      <li><a class="nav-link scrollto "  href="catag">Event List</a></li>
+                      <li><a class="nav-link scrollto active" href="profil">Profile</a></li>
+                      <li><a class="nav-link scrollto" href="chatbot">Contact</a></li>
+                      <button   class="btn" style="color:aliceblue;"  (click)="cart()"><i class="fas fa-shopping-cart"></i>Cart</button>
+                     
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                  </nav><!-- .navbar -->
+        
+                </div>
+              </header><!-- End Header -->
+
+
+
+           <div style="margin-top: 80px;">
+              <p >Name: {{ user.name }}</p>
+              <p>Email: {{ user.mail }}</p>
+              <p>Password: {{ user.password }}</p>
+              <form  [formGroup]="registerForm"  >
+    
+         
+   
+                <div >
+                  <label for="email">Email:</label>
+                     <input  type="email"  formControlName="mail"  class="form-control"  [(ngModel)]="user.mail" name="mail" id="mail">
+                     <div class="from-text text-danger" *ngIf="Mail.errors?.['required'] && (Mail.touched || Mail.dirty)">
+                       Email is required.</div>
+                   <div class="from-text text-danger" *ngIf="Mail.errors?.['email'] && (Mail.touched || Mail.dirty)">
+                         Email is Invalid.</div>
+                </div>
+        
+        
+                <div >
+                  <label for="name">Name</label>
+                     <input  type="text"  formControlName="name" class="form-control"   [(ngModel)]="user.name" 
+                     name="name" id="name">
+                     <div class="from-text text-danger" *ngIf="UserName.errors?.['required'] && (UserName.touched || UserName.dirty)">
+                       username is required.</div>
+      
+                  <div class="from-text text-danger" *ngIf="UserName.errors?.['minlength'] && (UserName.touched || UserName.dirty)">
+                username is too short. </div>
+     
+                    <div class="from-text text-danger" *ngIf="UserName.errors?.['pattern'] && (UserName.touched || UserName.dirty)" >
+              username should start with Alphabet. </div>
+                  
+                    
+     
+                </div>
+     
+     
+     
+                
+             <div>
+                 
+               <label for="password">Password</label>
+               <input type="password"  class="form-control" name="password"  id="password"formControlName="password" [(ngModel)]="user.password" >
+           <div class="from-text text-danger" *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">
+             Password is required.</div>
+           <div class="from-text text-danger" *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && (Password.touched || Password.dirty)">
+               Password should be at least 4 and at max 10 characters long.</div>	
+             </div>
+        
+               
+        
+         
+                
+                
+               
+        <button type="submit" class="btn btn-success" (click)="updateuserfromsubmit()">Update</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-secondary"(click)="gotolist()">back</button>
+     
+        
+          
+        </form>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </body></html>
+
+

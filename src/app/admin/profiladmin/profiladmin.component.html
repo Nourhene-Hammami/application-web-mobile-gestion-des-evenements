@@ -1,0 +1,61 @@
+
+<div style="margin-top: 80px;">
+    <p >Name: {{ user.name }}</p>
+    <p>Email: {{ user.mail }}</p>
+    <p>Password: {{ user.password }}</p>
+    <form  [formGroup]="registerForm"  >
+
+
+
+      <div >
+        <label for="email">Email:</label>
+           <input  type="email"  formControlName="mail"  class="form-control"  [(ngModel)]="user.mail" name="mail" id="mail">
+           <div class="from-text text-danger" *ngIf="Mail.errors?.['required'] && (Mail.touched || Mail.dirty)">
+             Email is required.</div>
+         <div class="from-text text-danger" *ngIf="Mail.errors?.['email'] && (Mail.touched || Mail.dirty)">
+               Email is Invalid.</div>
+      </div>
+
+
+      <div >
+        <label for="name">Name</label>
+           <input  type="text"  formControlName="name" class="form-control"   [(ngModel)]="user.name" 
+           name="name" id="name">
+           <div class="from-text text-danger" *ngIf="UserName.errors?.['required'] && (UserName.touched || UserName.dirty)">
+             username is required.</div>
+
+        <div class="from-text text-danger" *ngIf="UserName.errors?.['minlength'] && (UserName.touched || UserName.dirty)">
+      username is too short. </div>
+
+          <div class="from-text text-danger" *ngIf="UserName.errors?.['pattern'] && (UserName.touched || UserName.dirty)" >
+    username should start with Alphabet. </div>
+        
+          
+
+      </div>
+
+
+
+      
+   <div>
+       
+     <label for="password">Password</label>
+     <input type="password"  class="form-control" name="password"  id="password"formControlName="password" [(ngModel)]="user.password" >
+ <div class="from-text text-danger" *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">
+   Password is required.</div>
+ <div class="from-text text-danger" *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && (Password.touched || Password.dirty)">
+     Password should be at least 4 and at max 10 characters long.</div>	
+   </div>
+
+     
+
+
+      
+      
+     
+<button type="submit" class="btn btn-success" (click)="updateuserfromsubmit()">Update</button>&nbsp;&nbsp;
+<button type="button" class="btn btn-secondary"(click)="gotolist()">back</button>
+
+</form>
+</div>
+

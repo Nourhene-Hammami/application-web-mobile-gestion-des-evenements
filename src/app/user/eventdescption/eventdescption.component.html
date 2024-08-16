@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+    body{
+     background-image: url("../assets/img/log1.jpg");
+      width: 100%;
+      height: 110vh;
+      margin-top: auto;
+      margin-left: 	auto;
+       background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     position: relative;
+
+    }  </style>
+    			
+  
+
+
+</head>
+
+<body   >
+
+<div class="hfeed site" id="page"  style="padding-left:15% ;"  > 
+
+
+  <header  id="header" class="fixed-top d-flex align-items-center header-transparent" >
+    
+    <div  class="container-fluid container-xl d-flex align-items-center justify-content-between">
+              <div class="logo me-auto" >
+                <h1>EVENT.</h1>
+              </div>
+        
+              <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                  <li><a class="nav-link scrollto" (click)="gotohome()" >Home</a></li>
+                  <li><a class="nav-link scrollto" href="search">Search</a></li>
+        
+                  <li><a class="nav-link scrollto "  href="catag">Event List</a></li>
+                  <li><a class="nav-link scrollto" href="profil">Profile</a></li>
+                  <li><a class="nav-link scrollto" href="chatbot">Contact</a></li>
+                  <button   class="btn"  (click)="cart()"><i class="fas fa-shopping-cart"></i>Cart</button>
+                 <span > {{totalItem}} billets</span>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+              </nav><!-- .navbar -->
+        
+              
+        
+            </div>
+          </header><!-- End Header -->
+
+
+
+      
+
+ 
+       
+<div class="post-thumb-img-content post-thumb"  style="padding-top:7% ;"  >
+
+  <img class="banner-img" src="{{this.service.host+'/imageevents/'+event.id}}" alt="" 
+  class="attachment-large size-large wp-post-image" 
+width="550" height="300" decoding="async" loading="lazy" itemprop="image"
+  sizes="(max-width: 550px) 100vw, 550px" />
+</div>	
+
+
+
+<h1 class="entry-title" style="color:#fb2056;" itemprop="headline">{{event.name}}</h1>
+<div class="entry-content clear" itemprop="text"	>
+<div class="tc_the_content_pre">
+<span class="tc_event_date_title_front">
+<i class="fa fa-clock-o"></i>{{event.date}}</span>
+<div><span class="tc_event_location_title_front">
+<i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{event.lieu}}</span></div></div>
+<p>&nbsp;</p>
+<p><strong><span style="color: #7c2bff;">*ABOUT THIS EVENT :</span></strong></p>
+<p>{{event.desp}} </p>
+<p>&nbsp;</p>
+<p><strong><span style="color: #7c2bff;">* THE ORGANIZER FOR THIS EVENT:</span></strong></p>
+<p>{{event.organizateur}} </p>
+</div><!-- .entry-content .clear -->
+<p>&nbsp;</p><p>&nbsp;</p>
+
+
+<div> <h5  style="color:#fb2056;" >***Price For Student:{{event.priceForStudent}}TND***</h5>
+  <h5  style="color:#fb2056;" >***Price For No Student:{{event.priceForNoStudent}}TND***</h5>
+  
+<p><span style="margin-left:100px">
+    <strong  style="color: #7c2bff;"> What are you waiting !! book your place quickly :</strong></span>
+<span style="font-size:20px;">    
+<button   class="btn" style="color:aliceblue;"  (click)="addtocart(event)"  >
+  <i class="far fa-calendar-check"></i> Reserve</button>
+
+</span></p></div>
+
+<div></div>
+
+
+
+
+
+</div>
+	</body>
+</html>
+
+

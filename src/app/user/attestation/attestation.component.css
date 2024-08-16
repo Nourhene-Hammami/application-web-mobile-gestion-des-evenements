@@ -1,0 +1,14 @@
+
+
+
+
+.btn{
+    background-color:#fff;
+    border: 2px solid #2a945a;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  .btn:hover{
+  background-color: #318b5a;
+  color: #fff;}
